@@ -39,6 +39,22 @@ for table in tables:
 # Print the report footer
 print("\nTotal tables: ", len(tables))
 
+
+
+cur.execute("PRAGMA table_info(Statistic);")
+print(cur.fetchall())
+
+
+cur.execute("PRAGMA table_info(Scenario);")
+print(cur.fetchall())
+
+cur.execute("PRAGMA table_info(Definition);")
+print(cur.fetchall())
+
+
+cur.execute("PRAGMA table_info(Output);")
+print(cur.fetchall())
 # Close the cursor and the database connection
 cur.close()
 conn.close()
+
