@@ -6,6 +6,7 @@ Created on Thu Mar 23 10:32:27 2023
 @author: anandarupmukherjee
 """
 import numpy as np
+import json
 
 
 # FUNCTION TO FORMAT THE OUTPUTS 
@@ -33,12 +34,16 @@ with open('2023-02-20_Overall_Process_AP.out', 'r') as file:
 header=arr[14].split()
 tat=arr[17].split()
 
+super_dict=[]
 
 for i in range(18,54):
-    print(listify_dictionarify(arr[i], header))
+    val=listify_dictionarify(arr[i], header)
+    print(val)
     print("--------------------------")
+    super_dict.append({'ID':i, 'kpi':val})
 
-
+new_dat=json.dumps(super_dict, sort_keys=True, indent=4)
+print(new_dat)
 
 
 
